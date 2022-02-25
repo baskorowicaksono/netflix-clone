@@ -16,7 +16,7 @@ function Navbar() {
     <div className={isScrolled ? "navbar scrolled" : "navbar"}>
         <div className='container'>
             <div className='left'>
-                <img src="https://assets.brand.microsites.netflix.io/assets/7dc497e2-4975-11ec-a9ce-066b49664af6_cm_1440w.jpg?v=5" alt="netflix-logo" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1198px-Netflix_2015_logo.svg.png?20190206123158" alt="netflix-logo" />
                 <span>Homepage</span>
                 <span>Series</span>
                 <span>Movies</span>
