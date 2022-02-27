@@ -11,7 +11,6 @@ function Navbar() {
         return () => (window.onscroll = null);
     };
 
-    console.log(isScrolled);
   return (
     <div className={isScrolled ? "navbar scrolled" : "navbar"}>
         <div className='container'>
