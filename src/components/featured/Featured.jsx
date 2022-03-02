@@ -25,7 +25,7 @@ const Featured = ({type}) => {
                 </select>
             </div>
         )}
-        <img src="https://pixabay.com/get/gbdacdb55bf0cdcb888b360cd0df0adeccdd265668d77bcbe2f3803ed40a73ad0a2e8c64b8008c8153824d3a96542d15e_1280.jpg" alt="test-bg" />
+        <img src={require("C:/Users/Baskoro/Documents/coding/netflix-clone/netflix/src/assets/bg.jpg")} alt="test-bg" />
         <div className='info'>
             <img src={require('C:/Users/Baskoro/Documents/coding/netflix-clone/netflix/src/assets/title.png')} alt='featured-title' />
             <span className='desc'>

@@ -4,6 +4,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import AddIcon from '@mui/icons-material/Add';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import ThumbDownOutlinedIcon from '@mui/icons-material/ThumbDownOutlined';
+import trailer from "../../assets/trailer.mp4"
 
 const ListItem = ({index}) => {
   const [isHovered, setIsHovered] = React.useState(false);
@@ -15,25 +16,30 @@ const ListItem = ({index}) => {
     onMouseLeave = {() => setIsHovered(false)}
     >
       <img src='https://tbivision.com/files/2020/12/1200_Peaky-Blinders.jpg' alt="cover-img" />
-      <div className='itemInfo'>
-        <div className="icons">
-          <PlayArrowIcon />
-          <AddIcon />
-          <ThumbUpOutlinedIcon />
-          <ThumbDownOutlinedIcon />
+      {isHovered && (
+        <>
+        <video src={trailer} type={"video/mp4"} autoPlay={true} loop muted/>
+        <div className='itemInfo'>
+          <div className="icons">
+            <PlayArrowIcon className="icon" />
+            <AddIcon className="icon" />
+            <ThumbUpOutlinedIcon className="icon" />
+            <ThumbDownOutlinedIcon className="icon" />
+          </div>
+          <div className='itemInfoTop'>
+            <span>52 mins</span>
+            <span className='limit'>+13</span>
+            <span>2007</span>
+          </div>
+          <div className='desc'>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod, nisi eu blandit congue, nisl nisl consectetur nunc, eget consectetur nisl nisl eget.
+          </div>
+          <div className="genre">
+            Action
+          </div>
         </div>
-        <div className='itemInfoTop'>
-          <span>52 mins</span>
-          <span className='limit'>+13</span>
-          <span>2007</span>
-        </div>
-        <div className='desc'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod, nisi eu blandit congue, nisl nisl consectetur nunc, eget consectetur nisl nisl eget.
-        </div>
-        <div className="genre">
-          Action
-        </div>
-      </div>
+        </>
+      )}
     </div>
   )
 }
