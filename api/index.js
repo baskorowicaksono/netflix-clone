@@ -1,6 +1,19 @@
+const path = require('path')
+require('dotenv').config({ path: path.resolve(__dirname, './.env') })
 const express = require("express");
 const app = express();
+const mongoose = require("mongoose");
 
+const mongoose_connection_link = `mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_CLUSTER}.nbkkl.mongodb.net/${process.env.DATABASE_NAME}?retryWrites=true&w=majority`
+
+mongoose.connect(mongoose_connection_link, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log("Successfully connected to DB");
+}).catch((err) => {
+    console.log(err);
+})
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
