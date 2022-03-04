@@ -9,6 +9,8 @@ const app = express();
 // Routes Importing
 const authRoute = require("./routes/auth");
 const usersRoute = require("./routes/users");
+const movieRoutes = require("./routes/movies");
+const listRoutes = require("./routes/lists");
 
 // DB Connection
 const mongoose_connection_link = `mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_CLUSTER}.nbkkl.mongodb.net/${process.env.DATABASE_NAME}?retryWrites=true&w=majority`
@@ -28,6 +30,8 @@ app.use(express.json());
 // Routing Middlewares
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
+app.use("/api/movies", movieRoutes);
+app.use("/api/lists", listRoutes);
 
 // Server port
 app.listen(3000, () => {
