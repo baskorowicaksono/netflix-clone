@@ -2,13 +2,32 @@ import React from 'react';
 import "./featured.scss";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import axios from "axios";
 
 const Featured = ({type}) => {
+    const [content, setContent] = React.useState({});
+
+    React.useEffect(() => {
+        const getRandomContent = async () => {
+            try{
+                const res = await axios.get(`/movies/random?type=${type}`, {
+                    headers: {
+                        token: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}`
+                    }
+                });
+                setContent(res.data[0]);
+            } catch(err) {
+                console.log(err);
+            }
+        };
+        getRandomContent();
+
+    }, [type]);
   return (
     <div className="featured">
         {type && (
             <div className="category">
-                <span>{type === "movie" ? "Movies" : "Series"}</span>
+                <span>{type === "movies" ? "Movies" : "Series"}</span>
                 <select name="genre" id="genre">
                     <option>Genre</option>
                     <option value="adventure">Adventure</option>
@@ -25,11 +44,11 @@ const Featured = ({type}) => {
                 </select>
             </div>
         )}
-        <img src={require("C:/Users/Baskoro/Documents/coding/netflix-clone/netflix/src/assets/bg.jpg")} alt="test-bg" />
+        <img src={content.img} alt="test-bg" />
         <div className='info'>
-            <img src={require('C:/Users/Baskoro/Documents/coding/netflix-clone/netflix/src/assets/title.png')} alt='featured-title' />
+            <img src={content.imgTitle} alt='featured-title' />
             <span className='desc'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet pellentesque aliquam. Nam blandit luctus nisl id efficitur. Praesent urna nibh, vehicula vitae eleifend in, commodo vel libero. Duis turpis neque, pellentesque fringilla maximus ac, rhoncus id eros. Sed eu vulputate dui. Fusce vitae mollis mauris. Duis lorem tellus, malesuada sit amet blandit a, volutpat sit amet mauris. Donec et ultrices nunc, a maximus ligula. Donec dapibus neque et posuere pharetra.
+                {content.desc}
             </span>
             <div className='buttons'>
                 <button className='play'>

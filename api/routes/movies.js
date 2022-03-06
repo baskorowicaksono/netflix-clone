@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const movieController = require('../controllers/movies');
+const movieController = require('../controller/movies');
 const verify = require('../controller/verifyToken');
 
 // CREATE/ADD
@@ -12,7 +12,7 @@ router.put("/:id", verify, movieController.updateMovie)
 router.delete("/:id", verify, movieController.deleteMovie)
 
 // GET
-router.get("/find/:id", verify, movieController.getAUser)
+router.get("/find/:id", verify, movieController.getAMovie)
 
 // GET RANDOM MOVIE
 router.get("/random", verify, movieController.getRandomMovie)
