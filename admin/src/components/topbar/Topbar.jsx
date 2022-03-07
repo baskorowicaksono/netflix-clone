@@ -24,7 +24,6 @@ const Topbar = () => {
                 </div>
                 <div className="topbarIconContainer">
                     <SettingsIcon />
-                    <span className="topIconBadge">2</span>
                 </div>
                 <img src="https://i.ibb.co/yRqm6h1/barrel-fit-117780206-227898488535124-6621349274159945725-n.jpg" alt="top-avatar" className="topAvatar" />
             </div>
