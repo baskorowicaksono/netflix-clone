@@ -20,6 +20,13 @@
             .sidebarList {
                 list-style: none;
                 padding: 5px;
+
+                .sidebarListLink {
+                    text-decoration: none;
+                    color: inherit;
+
+                    
+                }
             
                 .sidebarListItem {
                     padding: 5px;

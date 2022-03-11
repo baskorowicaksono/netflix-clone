@@ -5,7 +5,8 @@ import TimelineIcon from '@mui/icons-material/Timeline';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import StorefrontIcon from '@mui/icons-material/Storefront';
-import { AttachMoney, AttachMoneyOutlined, ChatBubbleOutlineOutlined, DynamicFeedOutlined, EmailOutlined, EqualizerOutlined, ReportOutlined, WorkOutlineOutlined } from '@mui/icons-material';
+import { AttachMoneyOutlined, ChatBubbleOutlineOutlined, DynamicFeedOutlined, EmailOutlined, EqualizerOutlined, ReportOutlined, WorkOutlineOutlined } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
@@ -16,10 +17,13 @@ const Sidebar = () => {
                     Dashboard
                 </h3>
                 <ul className="sidebarList">
-                    <li className="sidebarListItem">
-                        <LineStyleIcon className='sidebarIcon' />
-                        Home
-                    </li>
+                    <Link to="/" className='sidebarListLink'>
+                        <li className="sidebarListItem">
+                                <LineStyleIcon className='sidebarIcon' />
+                                Home
+                            </li>
+                    </Link>
+                    
                     <li className="sidebarListItem">
                         <TimelineIcon className='sidebarIcon' />
                         Analytics
@@ -36,14 +40,19 @@ const Sidebar = () => {
                     Quick Menu
                 </h3>
                 <ul className="sidebarList">
-                    <li className="sidebarListItem">
-                        <PersonOutlineIcon className='sidebarIcon' />
-                        Users
-                    </li>
-                    <li className="sidebarListItem">
-                        <StorefrontIcon className='sidebarIcon' />
-                        Products
-                    </li>
+                    <Link to="/users" className='sidebarListLink'>
+                        <li className="sidebarListItem"> 
+                            <PersonOutlineIcon className='sidebarIcon' />
+                            Users
+                        </li>
+                    </Link>
+
+                    <Link to="/products" className='sidebarListLink'>
+                        <li className="sidebarListItem">
+                            <StorefrontIcon className='sidebarIcon' />
+                            Products
+                        </li>
+                    </Link>
                     <li className="sidebarListItem">
                         <AttachMoneyOutlined className='sidebarIcon' />
                         Transactions
